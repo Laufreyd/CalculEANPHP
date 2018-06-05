@@ -28,22 +28,13 @@ function EANkey(int $key){
 
   $reste = $somme % 10;
 
-  if($reste == 0){
-    $reste += 10;
-  }
-
   /**
   * Equivalent au return en version plus condensée :
   * return 10 - ($reste == 0 ? 10 : $reste);
   */
+  if($reste == 0){
+    $reste += 10;
+  }
+
   return 10 - $reste;
 }
-
-//Liste de tests - TO ERASE
-echo EANkey(303792016200) == 3 ? 'TRUE ' : 'FALSE ';
-echo EANkey(978294019961) == 7 ? 'TRUE ' : 'FALSE ';
-echo EANkey(471951200288) == 9 ? 'TRUE ' : 'FALSE ';
-echo EANkey(345312023645) == 8 ? 'TRUE ' : 'FALSE ';
-echo EANkey(978020137973) == 0 ? 'TRUE ' : 'FALSE ';
-
-?>
