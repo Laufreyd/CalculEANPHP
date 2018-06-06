@@ -1,11 +1,12 @@
 <?php
+
 /**
 * Fonction permettant de calculer la clé de contrôle d'un code EAN13
 * En deux temps : Calcul de la somme des chiffres, puis calcul de reste sur cette somme
 * Prend en paramètre un int équivalent aux 12 premiers chiffres du code EAN
 * Renvoie un int correspondant à la clé de contrôle
 */
-function EANkey(int $key){
+function EANkey($key){
 
   $somme = 0;
 
