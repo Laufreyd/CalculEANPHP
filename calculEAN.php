@@ -14,17 +14,21 @@ function EANkey($key){
   * Calcul de la somme : Addition des nombres en position pair et addition du triple des nombres en position impair
   */
   for($i = 0; $i < 12; $i++){
+
+    //Récupére le dernier chiffre du code
+    $round = round(($key/10 - floor($key/10))*10);
+
     /**
     * Equivalent de l'opération avec les conditions if/else :
     * if($i%2==0){
-    *     $somme += (($key%10) * 3);
+    *     $somme += (($test) * 3);
     * }
     * else{
-    *     $somme += $key%10;
+    *     $somme += $test;
     * }
     */
-    $somme += (($key%10) + (($key%10) * (2 * ($i%2==0))));
-    $key = ($key - ($key%10)) / 10;
+    $somme += ($round + ($round * (2 * ($i%2==0))));
+    $key = ($key - ($round)) / 10;
   }
 
   $reste = $somme % 10;
