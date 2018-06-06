@@ -21,8 +21,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['codeEAN'])){
     </form>
     <span>
       <?php
-      if(isset($result)){
+      if(isset($result) && gettype($result) == "integer"){
           echo("Clé du code " . $_POST['codeEAN'] . " : " . $result);
+      }
+      else if(isset($result)){
+        echo $result;
       }
       ?>
   </span>

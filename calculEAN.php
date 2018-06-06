@@ -8,6 +8,10 @@
 */
 function EANkey($key){
 
+  if($key > 1000000000000 || $key < 9999999999){
+    return "Erreur : code non conforme (11 ou 12 chiffres attendus)";
+  }
+
   $somme = 0;
 
   /**
